@@ -38,6 +38,8 @@ if M == 9 or M ==10 or M == 11:
     if M == 9 or M == 1:
         if D <= 30:
             print("Fall")
+        else:
+            print("-1")
     else:
         if D <= 31:
             print("Fall")
