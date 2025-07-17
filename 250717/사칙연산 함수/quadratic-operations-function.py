@@ -11,6 +11,6 @@ elif o == '-':
 elif o == '*':
     print(a, '*', c, '=',a*c,sep = ' ')
 elif o == '/':
-    print(a, '/', c, '=',a/c,sep = ' ')
+    print(a, '/', c, '=',a//c,sep = ' ')
 else:
     print("False")
