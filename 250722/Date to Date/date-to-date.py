@@ -4,7 +4,7 @@ sum_d = 0
 for i in range(m1, m2):
     if i == 2:
         sum_d += 28
-    elif i == 3 or i == 5 or i == 7 or i == 8 or i == 10 or i == 12:
+    elif i == 1 or i == 3 or i == 5 or i == 7 or i == 8 or i == 10 or i == 12:
         sum_d += 31 
     else:
         sum_d += 30 
