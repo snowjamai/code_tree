@@ -9,27 +9,30 @@ for i in range(N):
     a, b = map(str, input().split()) 
 
     if b == 'L':
-        target_pos = base_pos - int(a) 
-        for j in range(target_pos, base_pos):
+        target_pos = base_pos - int(a) + 1
+        for j in range(target_pos, base_pos +1 ):
             white_arr[j] += 1
             if black_arr[j] >= 2 and white_arr[j] >= 2:
                 cur_arr[j] = 3 
             else:
                 cur_arr[j] = 1 
+    
         base_pos = target_pos
 
     elif b == 'R':
-        target_pos = base_pos + int(a)
+        target_pos = base_pos + int(a) - 1
 
-        for j in range(base_pos, target_pos):
+        for j in range(base_pos, target_pos +1  ):
             black_arr[j] += 1 
             if black_arr[j] >= 2 and white_arr[j] >= 2:
                 cur_arr[j] = 3
             else:
                 cur_arr[j] = 2 
-
+      
         base_pos = target_pos
-    
+ 
+
+    # print(target_pos)
 black_cnt = 0
 white_cnt = 0
 gray_cnt = 0
