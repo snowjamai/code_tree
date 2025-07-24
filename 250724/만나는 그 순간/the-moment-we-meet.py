@@ -1,7 +1,7 @@
 N, M  = map(int, input().split())
 
-a_t = [0] * 100001
-b_t = [0] * 100001
+a_t = [-100000000] * 100001
+b_t = [-100000000] * 100001
 
 
 base_a = 0
@@ -39,6 +39,8 @@ for i in range(1,100001):
     if a_t[i] == b_t[i]:
         meet= True 
         print(i)
+        break
+    if a_t[i] == -100000000 or b_t[i] == -100000000:
         break
 
 if meet == False:
