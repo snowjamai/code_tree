@@ -19,12 +19,10 @@ for i in range(y3, y4):
 
 
 
-
-
 min_x = 2001
-max_x = 0
+max_x = -1
 min_y = 2001
-max_y = 0
+max_y = -1
 
 for i in range(y1, y2):
     for j in range(x1, x2):
@@ -38,5 +36,7 @@ for i in range(y1, y2):
                 min_y = i 
             if i > max_y:
                 max_y = i 
-
-print((max_y - min_y + 1) * (max_x - min_x + 1))
+if max_y == -1:
+    print("0")
+else:
+    print((max_y - min_y + 1) * (max_x - min_x + 1))
