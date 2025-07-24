@@ -6,7 +6,7 @@ for i in range(N):
     
 arr.sort()
 max_cnt = 0
-cnt = 0
+cnt = 1
 
 for i in range(len(arr)):
    
