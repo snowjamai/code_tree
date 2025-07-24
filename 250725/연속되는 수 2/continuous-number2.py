@@ -12,9 +12,10 @@ for i in range(len(arr)):
     if i == 0 or arr[i] == arr[i - 1]:
         cnt += 1 
     else:
-        cnt = 1
-    if max_cnt < cnt:
-        max_cnt = cnt
+        if max_cnt < cnt:
+            max_cnt = cnt
+        cnt = 0
+    
 if max_cnt < cnt:
     max_cnt = cnt
 print(max_cnt)
