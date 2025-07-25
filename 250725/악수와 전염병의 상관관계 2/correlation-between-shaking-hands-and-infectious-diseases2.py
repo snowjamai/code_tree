@@ -31,6 +31,8 @@ for i in range(251):
         if infect_man[arr[i][0]] == 0 and  infect_p[arr[i][0]] == False:
             infect_man[arr[i][0]] = K
             infect_p[arr[i][0]] = True 
+            infect_man[arr[i][1]] -= 1
+
         elif infect_man[arr[i][0]] == 0 and  infect_p[arr[i][0]] == True:
             infect_man[arr[i][1]] -= 1
         else:
