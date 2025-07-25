@@ -17,21 +17,27 @@ for i in range(251):
         continue 
     
     if infect_man[arr[i][0]] != 0:
-        if infect_man[arr[i][1]] == 0:
+        if infect_man[arr[i][1]] == 0 and infect_p[arr[i][1]] == False:
             infect_man[arr[i][1]] = K 
             infect_p[arr[i][1]] = True 
-        else:
-            infect_man[arr[i][1]] -= 1
-        infect_man[arr[i][0]] -= 1
-    elif infect_man[arr[i][1]] != 0:
-        if infect_man[arr[i][0]] == 0:
-            infect_man[arr[i][0]] = K
-            infect_p[arr[i][0]] = True 
-
+            infect_man[arr[i][0]] -= 1
+        elif infect_man[arr[i][1]] == 0 and infect_p[arr[i][1]] == True:
+            infect_man[arr[i][0]] -= 1
         else:
             infect_man[arr[i][0]] -= 1
-        infect_man[arr[i][1]] -= 1
- 
+            infect_man[arr[i][1]] -= 1
+        
+    elif infect_man[arr[i][1]] != 0:
+        if infect_man[arr[i][0]] == 0 and  infect_p[arr[i][0]] == False:
+            infect_man[arr[i][0]] = K
+            infect_p[arr[i][0]] = True 
+        elif infect_man[arr[i][0]] == 0 and  infect_p[arr[i][0]] == True:
+            infect_man[arr[i][1]] -= 1
+        else:
+            infect_man[arr[i][1]] -= 1
+            infect_man[arr[i][0]] -= 1
+        # infect_man[arr[i][1]] -= 1
+
 
 for i in range(1, N + 1):
     if infect_p[i] == False:
