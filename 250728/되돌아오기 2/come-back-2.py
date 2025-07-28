@@ -19,7 +19,7 @@ for i in commands:
         time += 1 
         cur_d = (cur_d + 1) % 4 
     elif i == 'L':
-        arr[itme] = (cx, cy)
+        arr[time] = (cx, cy)
         time += 1 
         cur_d = (cur_d - 1) % 4 
 
