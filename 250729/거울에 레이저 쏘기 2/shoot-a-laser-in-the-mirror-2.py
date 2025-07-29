@@ -37,7 +37,7 @@ elif K <= 4 * N:
 # d = 3 -> nd = 2 
 
 while True: 
-    # print(pos_x, pos_y, cd)
+    print(pos_x, pos_y, cd)
     if grid[pos_y][pos_x] == '/':
         if cd == 0:
             nd = 3
