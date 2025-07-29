@@ -62,7 +62,7 @@ while True:
         nx, ny = pos_x + dx[nd], pos_y + dy[nd] 
         cd = nd 
         cnt += 1 
-    pos_x, pos_y= nx, ny
     if nx < 0 or nx >= N or ny < 0 or ny >= N:
         break 
+    pos_x, pos_y= nx, ny
 print(cnt)
