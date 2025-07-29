@@ -37,31 +37,33 @@ elif K <= 4 * N:
 # d = 3 -> nd = 2 
 
 while True: 
-    print(pos_x, pos_y, cd)
-    if grid[pos_y][pos_x] == '/':
-        if cd == 0:
-            nd = 3
-        elif cd == 1:
-            nd = 2
-        elif cd == 2:
-            nd = 1
-        elif cd == 3:
-            nd = 0
-        nx, ny = pos_x + dx[nd], pos_y + dy[nd] 
-        cd = nd 
-        cnt += 1 
-    elif grid[pos_y][pos_x] == '\\':
-        if cd == 0:
-            nd = 1
-        elif cd == 1:
-            nd = 0
-        elif cd == 2:
-            nd = 3
-        elif cd == 3:
-            nd = 2 
-        nx, ny = pos_x + dx[nd], pos_y + dy[nd] 
-        cd = nd 
-        cnt += 1 
+    try:
+        if grid[pos_y][pos_x] == '/':
+            if cd == 0:
+                nd = 3
+            elif cd == 1:
+                nd = 2
+            elif cd == 2:
+                nd = 1
+            elif cd == 3:
+                nd = 0
+            nx, ny = pos_x + dx[nd], pos_y + dy[nd] 
+            cd = nd 
+            cnt += 1 
+        elif grid[pos_y][pos_x] == '\\':
+            if cd == 0:
+                nd = 1
+            elif cd == 1:
+                nd = 0
+            elif cd == 2:
+                nd = 3
+            elif cd == 3:
+                nd = 2 
+            nx, ny = pos_x + dx[nd], pos_y + dy[nd] 
+            cd = nd 
+            cnt += 1 
+    except:
+        print(pos_x, pos_y, cd)
     if nx < 0 or nx >= N or ny < 0 or ny >= N:
         break 
     pos_x, pos_y= nx, ny
