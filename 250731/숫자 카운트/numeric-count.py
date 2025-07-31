@@ -30,10 +30,12 @@ for i in range(1,10):
     for j in range(1, 10):
         for k in range(1, 10):
             can_num = False 
+            if i == j or j == k or i == k:
+                continue
             for a in arr:
                 target = a[0]
                 src = str(i * 100 + j * 10 + k)
-             
+            
                 st = get_strike(src, target)
                 ba = get_ball(src, target) 
                 if st == a[1] and ba== a[2]:
