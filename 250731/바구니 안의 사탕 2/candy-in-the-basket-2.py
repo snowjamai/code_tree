@@ -9,7 +9,7 @@ for i in range(N):
 
 
 max_v = 0
-for i in range(K, 101- K + 1):
+for i in range(K, 101- K ):
     tmp = arr[i - K:i + K + 1]
 
     sum_v = sum(tmp)
