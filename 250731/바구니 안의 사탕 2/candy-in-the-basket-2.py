@@ -9,10 +9,14 @@ for i in range(N):
 
 
 max_v = 0
-for i in range(K, 101 - K):
-    tmp = arr[i - K: i + K + 1]
-    sum_v = sum(tmp)
-    if max_v < sum_v:
-        max_v = sum_v
+
+if K > 50 : 
+    max_v = sum(arr)
+else:
+    for i in range(K, 101 - K):
+        tmp = arr[i - K: i + K + 1]
+        sum_v = sum(tmp)
+        if max_v < sum_v:
+            max_v = sum_v
 
 print(max_v)
