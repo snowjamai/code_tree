@@ -10,7 +10,7 @@ def get_sum(a):
     return s 
 
 max_sum = 0
-for i in range(len(arr) - K):
+for i in range(len(arr) - K + 1):
     s = get_sum(i)
 
     if s > max_sum:
