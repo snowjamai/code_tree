@@ -31,14 +31,12 @@ def is_include(ax1,ax2, bx1,bx2):
 
 cnt = 0
 for i in range(N):
-    target_1, target_2 = arr[i][0], arr[i][1]
-    
     include = False 
     for j in range(N):
         if i != j:
             if is_include(arr[i][0], arr[i][1], arr[j][0],arr[j][1]) == True:
                 include = True 
-    if include == True:
+    if include == False:
         cnt += 1
 
 print(cnt)
