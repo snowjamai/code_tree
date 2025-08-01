@@ -19,13 +19,12 @@ for i in range(len(arr)):
     for j in tmp:
         sum_v += j
 
-        if sum_v > B:
-            if max_cnt < cnt:
-                max_cnt = cnt 
+        if sum_v > B: 
             break
         else:
             cnt += 1 
-
+    if max_cnt < cnt:
+        max_cnt = cnt
 print(max_cnt)
 
 
