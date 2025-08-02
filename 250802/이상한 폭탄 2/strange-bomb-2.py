@@ -16,7 +16,7 @@ def get_idx(num):
     return tmp 
 
 bomb_num = -1
-for i in range(N):
+for i in range(1001):
     tmp = get_idx(i) 
     if tmp == []: 
         continue 
