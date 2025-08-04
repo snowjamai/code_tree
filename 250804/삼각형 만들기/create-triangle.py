@@ -22,19 +22,23 @@ for i in range(N- 2):
             else:
                 s = 0
                 if arr[i][0] == arr[j][0]:
-                    h = abs(arr[i][1] - arr[j][1])
-                    w = abs(arr[i][0] - arr[k][0])
-                    s = h * w
+                    if arr[i][1] == arr[k][1] or arr[j][1] == arr[k][1]:
+                        h = abs(arr[i][1] - arr[j][1])
+                        w = abs(arr[i][0] - arr[k][0])
+                        s = h * w
                 elif arr[j][0] == arr[k][0]:
-                    h = abs(arr[j][1] - arr[k][1])
-                    w = abs(arr[j][0] - arr[i][0])
-                    s = h * w
+                    if arr[i][1] == arr[j][1] or arr[i][1] == arr[k][1]:
+                        h = abs(arr[j][1] - arr[k][1])
+                        w = abs(arr[j][0] - arr[i][0])
+                        s = h * w
                 elif arr[i][0] == arr[k][0]:
-                    h = abs(arr[i][1] - arr[k][1])
-                    w = abs(arr[i][0] - arr[j][0])
-                    s = h * w
+                    if arr[j][1] == arr[i][1] or arr[j][1] == arr[k][1]:
+                        h = abs(arr[i][1] - arr[k][1])
+                        w = abs(arr[i][0] - arr[j][0])
+                        s = h * w
                 
                 if max_s < s:
+                    # print(arr[i][0],arr[i][1], arr[j][0], arr[j][1], arr[k][0], arr[k][1])
                     max_s = s 
                 
 print(int(max_s))
