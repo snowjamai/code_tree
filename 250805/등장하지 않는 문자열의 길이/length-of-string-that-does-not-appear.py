@@ -1,9 +1,9 @@
 N = int(input())
 s = input() 
 
-min_len = N // 2 + 1 
+min_len = N
 
-for i in range(1, N // 2 + 1):
+for i in range(1, N + 1):
     is_dupli = False 
     for j in range(N - i):
         con_str = s[j:j + i]
