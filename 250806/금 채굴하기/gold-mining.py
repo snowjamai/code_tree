@@ -20,11 +20,11 @@ max_cnt = 0
 max_cost = 0
 for h in range(N):
     for w in range(N):
-        for k in range(N):
+        for k in range(2 * N):
             cnt = cnt_gold(w,h,k)
             cost = cnt * M 
             f_cost = cost - k * k - (k + 1) * (k + 1)
-            # print(cnt, w, h, k, f_cost)
+        
             if f_cost < 0:
                 continue
             else:
