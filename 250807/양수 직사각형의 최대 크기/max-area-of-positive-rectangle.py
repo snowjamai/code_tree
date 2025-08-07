@@ -15,7 +15,7 @@ for h in range(N):
                     is_negative = False 
                     for i in range(start_y, end_y + 1):
                         for j in range(start_x, end_x + 1):
-                            if board[i][j] < 0 :
+                            if board[i][j] <= 0 :
                                 is_negative = True 
                                 break
                         if is_negative == True:
