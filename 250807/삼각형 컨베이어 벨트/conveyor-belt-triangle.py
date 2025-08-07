@@ -5,7 +5,7 @@ arr = list(map(int,input().split())) + list(map(int,input().split())) + list(map
 
 r = T % (3 * N)
 arr = arr[-r:] + arr[:-r]
-for i in range(3):
-    for j in range(N):
-        print(arr[3 * i + j] , end = ' ')
-    print("")
+for i in range(len(arr)):
+    print(arr[i] , end = ' ')
+    if (i + 1) % N == 0:
+        print("")
