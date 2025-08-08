@@ -16,13 +16,22 @@ def get_encoding(num):
 
     return dict_num 
 
+def calc_len(num_list):
+    cnt = 0
+
+    for i in num_list:
+        s1 = len(i[0])
+        s2 = len(str(i[1]))
+        cnt += s1 + s2 
+    return cnt 
+
 min_len = float('inf')
 for i in range(len(a)):
     arr = a[-i:] + a[:-i]
     tmp = get_encoding(arr)
-    lt = len(tmp)
+    lt = calc_len(tmp)
     if lt < min_len:
         min_len = lt
 
 
-print(min_len * 2)
+print(min_len)
