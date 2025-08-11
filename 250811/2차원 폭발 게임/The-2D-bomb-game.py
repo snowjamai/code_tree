@@ -55,8 +55,29 @@ def make_d(x):
 def find_bomb():
     for i in range(N):
         find_column_bomb(i)
+        
+def is_bomb():
+    for w in range(N):
+        cnt = 1
+        for h in range(N):
+            if h == 0:
+                continue 
+            else:
+                if board[h][w] != 0:
+                    if board[h][w] != board[h - 1][w]:
+                        if cnt >= M:
+                            return True 
+                        cnt = 1
+                    else:
+                        cnt += 1
+                
+        if cnt >= M:
+            return True 
+    return False 
+
 
 for i in range(K):
+    # while is_bomb():
     find_bomb()
     for i in range(N):
         make_d(i)
@@ -64,6 +85,9 @@ for i in range(K):
     for i in range(N):
         make_d(i)
 
+find_bomb()
+for i in range(N):
+    make_d(i)
 cnt = 0
 for h in range(N):
     for w in range(N):
@@ -71,11 +95,3 @@ for h in range(N):
             cnt += 1
 
 print(cnt)
-
-# for i in range(K):
-    
-#     for i in range(N):
-
-#     print("-----")
-#     print_board()
-#     print("ㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁ")
