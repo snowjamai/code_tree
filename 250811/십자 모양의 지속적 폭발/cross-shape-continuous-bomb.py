@@ -20,6 +20,7 @@ def bomb_simul(x):
                         continue 
                     else:
                         board[ny][nx] = 0 
+            break
 
 
     
