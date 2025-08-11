@@ -57,11 +57,8 @@ is_b = False
 while find_bomb(b) == True:
     is_b = True 
     b = bomb(b)
-    # print(b)
 
-if is_b == False:
-    print("0")
-else:
-    print(len(b))
-    for i in b:
-        print(i)
+
+print(len(b))
+for i in b:
+    print(i)
