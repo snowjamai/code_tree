@@ -5,6 +5,8 @@ for i in range(N):
     arr.append(int(input()))
 
 def find_bomb(arr):
+    if arr == []:
+        return False
     cnt = 1
     for i in range(len(arr)):
         if i == 0:
@@ -55,7 +57,7 @@ is_b = False
 while find_bomb(b) == True:
     is_b = True 
     b = bomb(b)
- 
+    # print(b)
 
 if is_b == False:
     print("0")
