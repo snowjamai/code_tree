@@ -71,11 +71,12 @@ def make_sum(d):
                     board[h][3] = 0
     elif d == 'R':
         for h in range(4):
-            for w in range(3, -1, -1):
-                if board[h][w] == board[h][w - 1]:
+            for w in range(3, 0, -1):
+                if board[h][w] == board[h][w - 1] and board[h][w] != 0:
                     board[h][w] = board[h][w] * 2
                     for i in range(w - 1, 0, -1):
                         board[h][i] = board[h][i - 1]
+        
                     board[h][0] = 0
     elif d == 'U':
         for w in range(4):
