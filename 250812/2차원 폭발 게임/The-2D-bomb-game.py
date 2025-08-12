@@ -69,8 +69,10 @@ def is_bomb():
                             return True 
                     else:
                         cnt += 1
+                else:
+                    cnt = 1 
                 
-        if cnt >= M:
+        if cnt >= M and board[N - 1][w] != 0:
             return True 
     return False 
 
@@ -85,7 +87,6 @@ for i in range(K):
     for i in range(N):
         make_d(i)
     # print_board()
-
 while is_bomb():
     find_bomb()
     for i in range(N):
