@@ -13,18 +13,24 @@ def is_fit(x, y):
 def fill(x, y):
     for i in range(M):
         board[y][x + i] = 1
+def pull(x, y):
+    for i in range(M):
+        board[y][x + i] = 0 
 
 fit_comp = False 
-
-for h in range(N -1, -1, -1):
-    for w in range(N - M + 1):
-        if is_fit(w, h) == True:
-            fit_comp = True 
-            fill(w, h)
-            break 
-
-    if fit_comp == True:
+for h in range(N):
+    if is_fit(K - 1, h) == True and fit_comp == False:
+        fit_comp = True 
+        fill(K - 1, h)
+    elif is_fit(K - 1, h) == True and fit_comp == True:
+        pull(K - 1, h - 1) 
+        fill(K - 1, h) 
+    elif  is_fit(K - 1, h) == False and fit_comp == True:
         break 
+    
+
+       
+
 
 
 for h in range(N):
