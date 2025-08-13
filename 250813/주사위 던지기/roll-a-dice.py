@@ -12,58 +12,62 @@ row = [1, 4, 6, 3]
 col = [1,5,6,2]
 col_b = 2
 row_b = 2
-board[c- 1][r - 1] = 6
+# board[c- 1][r - 1] = 6
 def dice(x, y, d):
     global row, col 
     
-
+    value = row[2]
     if d == 'U':
         nx, ny = x + dx[3], y + dy[3] 
         if nx < 0 or nx >= N or ny < 0 or ny >= N:
-            return x, y, -1
+            return x, y,x, y ,-1
         else:
             col = col[-1:] + col[:-1]
             row[0] = col[0]
             row[row_b] = col[col_b] 
-            return nx, ny, row[row_b] 
+            return x, y, nx, ny, value
 
     elif d == 'D':
         nx, ny = x + dx[2], y + dy[2] 
         if nx < 0 or nx >= N or ny < 0 or ny >= N:
-            return x, y,  -1
+            return x, y,x, y , -1
         else:
             col = col[1:] + col[:1]
             row[0] = col[0]
             row[row_b] = col[col_b] 
-            return nx, ny, row[row_b] 
+            return x, y, nx, ny, value
 
     elif d == 'R':
         nx, ny = x + dx[0], y + dy[0] 
         if nx < 0 or nx >= N or ny < 0 or ny >= N:
-            return x, y,  -1
+            return x, y,x, y  ,-1
         else:
             row = row[1:] + row[:1]
             col[0] = row[0]
 
             col[col_b] = row[row_b]
-            return nx, ny, row[row_b] 
+            return x, y, nx, ny, value
 
     elif d == 'L':
         nx, ny = x + dx[1], y + dy[1] 
         if nx < 0 or nx >= N or ny < 0 or ny >= N:
-            return x, y,  -1
+            return x, y,x, y , -1
         else:
             row = row[-1:] + row[:-1]
             col[0] = row[0]
             col[col_b] = row[row_b]
-            return nx, ny, row[row_b] 
+            return x, y, nx, ny, value
 
 
 x, y = c - 1, r - 1 
 for c in command:
-    x, y, z = dice(x, y, c)
+    x, y, nx, ny, z = dice(x, y, c)
     if z != -1:
         board[y][x] = z
+        x, y = nx, ny 
+    
+
+board[y][x] = row[2]
 
 
 cnt = 0
