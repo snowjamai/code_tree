@@ -20,7 +20,7 @@ def dice(x, y, d):
     if d == 'U':
         nx, ny = x + dx[3], y + dy[3] 
         if nx < 0 or nx >= N or ny < 0 or ny >= N:
-            return x, y, row[row_b] 
+            return x, y, -1
         else:
             col = col[-1:] + col[:-1]
             row[0] = col[0]
@@ -30,7 +30,7 @@ def dice(x, y, d):
     elif d == 'D':
         nx, ny = x + dx[2], y + dy[2] 
         if nx < 0 or nx >= N or ny < 0 or ny >= N:
-            return x, y, row[row_b] 
+            return x, y,  -1
         else:
             col = col[1:] + col[:1]
             row[0] = col[0]
@@ -40,7 +40,7 @@ def dice(x, y, d):
     elif d == 'R':
         nx, ny = x + dx[0], y + dy[0] 
         if nx < 0 or nx >= N or ny < 0 or ny >= N:
-            return x, y, row[row_b] 
+            return x, y,  -1
         else:
             row = row[1:] + row[:1]
             col[0] = row[0]
@@ -51,7 +51,7 @@ def dice(x, y, d):
     elif d == 'L':
         nx, ny = x + dx[1], y + dy[1] 
         if nx < 0 or nx >= N or ny < 0 or ny >= N:
-            return x, y, row[row_b] 
+            return x, y,  -1
         else:
             row = row[-1:] + row[:-1]
             col[0] = row[0]
@@ -62,7 +62,8 @@ def dice(x, y, d):
 x, y = c - 1, r - 1 
 for c in command:
     x, y, z = dice(x, y, c)
-    board[y][x] = z
+    if z != -1:
+        board[y][x] = z
 
 
 cnt = 0
