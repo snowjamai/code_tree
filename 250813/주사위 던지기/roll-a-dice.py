@@ -43,7 +43,7 @@ def dice(x, y, d):
             return x, y, row[row_b] 
         else:
             row = row[1:] + row[:1]
-            row[0] = col[0]
+            col[0] = row[0]
 
             col[col_b] = row[row_b]
             return nx, ny, row[row_b] 
@@ -54,7 +54,7 @@ def dice(x, y, d):
             return x, y, row[row_b] 
         else:
             row = row[-1:] + row[:-1]
-            row[0] = col[0]
+            col[0] = row[0]
             col[col_b] = row[row_b]
             return nx, ny, row[row_b] 
 
@@ -63,6 +63,7 @@ x, y = c - 1, r - 1
 for c in command:
     x, y, z = dice(x, y, c)
     board[y][x] = z
+
 
 cnt = 0
 for h in range(N):
