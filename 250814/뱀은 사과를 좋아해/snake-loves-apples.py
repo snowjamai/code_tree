@@ -3,7 +3,7 @@ board = [[0] * N for  _ in range(N)]
 
 apple = []
 for i in range(M):
-    x, y = map(int, input().split())
+    y, x = map(int, input().split())
     board[y - 1][x - 1] = 1 
 
 
@@ -39,10 +39,8 @@ def simul(x, y, d):
     if nx < 0 or ny < 0 or nx >= N or nx >= N:
         return -1 ,nx,ny
     else:
-        print(nx, ny)
         if board[ny][nx] == 0:
             tail = snake[0]
-            print(tail)
             board[tail[1]][tail[0]] = 0 
             snake = snake[1:] + [0]
             snake[snake_head] = (nx, ny) 
@@ -73,17 +71,18 @@ die_t = 0
 for m in move:
     d, p = m[0], m[1]
     for i in range(p):
-        print(x, y, d)
+        # print(x, y, d)
         suc, x, y = simul(x, y,d)
-        print(suc)
         if suc == -1:
             die = True 
             die_t += 1
             break 
-        pb()
+        # pb()
+        # print("----------")
         die_t += 1 
     if die == True:
         break 
+
 print(die_t)
 
             
