@@ -53,7 +53,14 @@ def simul(x, y, d):
             board[ny][nx] = 2
             return 1 ,nx,ny
         elif board[ny][nx] == 2:
-            return -1 ,nx,ny
+            if snake[0][0] == nx and snake[0][1] == ny:
+                tail = snake[0]
+                board[tail[1]][tail[0]] = 0 
+                snake = snake[1:] + [0]
+                snake[snake_head] = (nx, ny) 
+                return 1, nx, ny 
+            else:
+                return -1 ,nx,ny
     
 
 
@@ -68,6 +75,7 @@ x, y = 0 , 0
 board[y][x] = 2
 die = False 
 die_t = 0
+d= 0
 for m in move:
     d, p = m[0], m[1]
     for i in range(p):
@@ -78,8 +86,8 @@ for m in move:
             die_t += 1
             break 
         # pb()
-        # print("----------")
         die_t += 1 
+
     if die == True:
         break 
 
