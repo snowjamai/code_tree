@@ -3,7 +3,8 @@
 def comb(l):
     if len(l) >= N:
         if len(l) >= 2:
-            print(l[0], l[1])
+            for i in l:
+                print(i, end=' ')
         else:
             print("1")
 
