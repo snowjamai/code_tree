@@ -3,7 +3,7 @@ N = int(input())
 board = [list(map(int, input().split())) for _ in range(N)]
 
 
-dx, dy = [1,0,-1,0], [0,-1,0,1]
+dx, dy = [1,0,-1,0], [0,1,0,-1]
 
 def simul(x, y, d):
     t = 1
@@ -45,7 +45,6 @@ for i in range(N):
     t = simul(i, 0, 1)
     if t > max_t:
         max_t = t 
-
 for i in range(N):
     t = simul(N - 1, i, 2)
     if t > max_t:
