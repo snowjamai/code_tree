@@ -4,7 +4,7 @@ import sys
 N = int(input())
 
 board = [list(map(int,  sys.stdin.readline().split())) for _ in range(N)]
-print(board)
+
 
 dx, dy = [1,0,-1,0], [0,1,0,-1]
 
@@ -46,7 +46,9 @@ def simul(x, y, d):
 print("start")
 max_t = 0
 for i in range(N):
+    print(i)
     t = simul(i, 0, 1)
+    break
     if t > max_t:
         max_t = t 
 print("1", max_t)
