@@ -9,7 +9,7 @@ for i in range(M):
 
 
 
-dx, dy = [1, -1, 0, 0], [0,0,1,-1]
+dx, dy = [0, 0, -1,1], [-1,1,0,0]
 
 
 def pb():
@@ -48,6 +48,7 @@ for i in range(T):
             if ball[h][w] == 1:
                 ball = move_ball(w, h, ball)
     # pb() 
+    # print("------")
     ball = eliminate(ball)
     # pb() 
     # print("------")
