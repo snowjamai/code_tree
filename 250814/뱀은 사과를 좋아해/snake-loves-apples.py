@@ -16,7 +16,7 @@ for k in range(K):
     move.append((d, int(p)))
 
 snake = [0] * 1001 
-snake[0] = (4,0)
+snake[0] = (0,0)
 snake_head = 0 
 
 def simul(x, y, d):
@@ -25,25 +25,38 @@ def simul(x, y, d):
     if d == 'L':
         dx, dy = -1, 0 
         nx, ny = x + dx, y + dy 
-        if nx < 0 or ny < 0 or nx >= N or nx >= N:
+        
+    elif d == 'R':
+        dx, dy = 1, 0 
+        nx, ny = x + dx, y + dy 
+    elif d == 'U':
+        dx, dy = 0, -1 
+        nx, ny = x + dx, y + dy 
+    elif d == 'D':
+        dx, dy = 0, 1 
+        nx, ny = x + dx, y + dy 
+
+    if nx < 0 or ny < 0 or nx >= N or nx >= N:
+        return -1 ,nx,ny
+    else:
+        print(nx, ny)
+        if board[ny][nx] == 0:
+            tail = snake[0]
+            print(tail)
+            board[tail[1]][tail[0]] = 0 
+            snake = snake[1:] + [0]
+            snake[snake_head] = (nx, ny) 
+            
+            board[ny][nx] = 2
+            return 1, nx, ny
+        elif board[ny][nx] == 1:
+            snake_head += 1
+            snake[snake_head] = (nx, ny)
+            board[ny][nx] = 2
+            return 1 ,nx,ny
+        elif board[ny][nx] == 2:
             return -1 ,nx,ny
-        else:
-            print(nx, ny)
-            if board[ny][nx] == 0:
-                tail = snake[0]
-                print(tail)
-                board[tail[1]][tail[0]] = 0 
-                snake = snake[1:]
-                snake[snake_head] = (nx, ny) 
-                board[ny][ny] = 2
-                return 1, nx, ny
-            elif board[ny][nx] == 1:
-                snake_head += 1
-                snake[snake_head] = board[ny][nx]
-                board[ny][nx] = 2
-                return 1 ,nx,ny
-            elif board[ny][nx] == 2:
-                return -1 ,nx,ny
+    
 
 
 def pb():
@@ -52,8 +65,9 @@ def pb():
             print(board[h][w], end = ' ' )
         print("") 
 
-pb()
-x, y = 4 , 0
+
+x, y = 0 , 0
+board[y][x] = 2
 die = False 
 die_t = 0
 for m in move:
@@ -64,6 +78,7 @@ for m in move:
         print(suc)
         if suc == -1:
             die = True 
+            die_t += 1
             break 
         pb()
         die_t += 1 
