@@ -15,7 +15,7 @@ for k in range(K):
     d, p = map(str, input().split())
     move.append((d, int(p)))
 
-snake = [0] * 1001 
+snake = [0] * 10001 
 snake[0] = (0,0)
 snake_head = 0 
 
