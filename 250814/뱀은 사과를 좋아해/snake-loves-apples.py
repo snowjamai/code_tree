@@ -36,8 +36,8 @@ def simul(x, y, d):
         dx, dy = 0, 1 
         nx, ny = x + dx, y + dy 
 
-    if nx < 0 or ny < 0 or nx >= N or nx >= N:
-        return -1 ,nx,ny
+    if nx < 0 or ny < 0 or nx >= N or ny >= N:
+        return -1 ,nx, ny
     else:
         if board[ny][nx] == 0:
             tail = snake[0]
