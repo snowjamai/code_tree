@@ -1,7 +1,10 @@
+import sys 
+
+
 N = int(input())
 
-board = [list(map(int, input().split())) for _ in range(N)]
-
+board = [list(map(int,  sys.stdin.readline().split())) for _ in range(N)]
+print(board)
 
 dx, dy = [1,0,-1,0], [0,1,0,-1]
 
@@ -40,20 +43,25 @@ def simul(x, y, d):
                 # nx, ny = x, y 
                 x, y = nx, ny
                 
+print("start")
 max_t = 0
 for i in range(N):
     t = simul(i, 0, 1)
     if t > max_t:
         max_t = t 
+print("1", max_t)
+
 for i in range(N):
     t = simul(N - 1, i, 2)
     if t > max_t:
         max_t = t 
+print("2", max_t)
 
 for i in range(N):
     t = simul(i, N - 1, 3)
     if t > max_t:
         max_t = t 
+print("3", max_t)
 
 for i in range(N):
     t = simul(0, i, 0)
