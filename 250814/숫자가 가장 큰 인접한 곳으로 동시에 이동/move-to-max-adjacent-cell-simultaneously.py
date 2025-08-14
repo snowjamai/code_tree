@@ -1,3 +1,6 @@
+import copy
+
+
 N, M, T = map(int, input().split())
 
 board = [list(map(int, input().split())) for _ in range(N)]
@@ -25,7 +28,7 @@ def move_ball(x, y, arr):
 
     for i in range(4):
         nx, ny = x + dx[i], y + dy[i] 
-        if nx < 0 or nx >= N or nx < 0 or ny >= N:
+        if nx < 0 or nx >= N or ny < 0 or ny >= N:
             continue 
         else:
             if board[ny][nx] > max_v:
@@ -33,7 +36,7 @@ def move_ball(x, y, arr):
                 max_idx = (nx, ny)
     if max_idx != -1:
         arr[max_idx[1]][max_idx[0]] += 1 
-        arr[y][x] -= 1 
+        
     return arr 
 def eliminate(arr):
     for i in range(N):
@@ -43,10 +46,14 @@ def eliminate(arr):
     return arr 
 
 for i in range(T):
+    tmp = [[0] * N for _ in range(N)]
+
     for h in range(N):
         for w in range(N):
             if ball[h][w] == 1:
-                ball = move_ball(w, h, ball)
+                tmp = move_ball(w, h, tmp)
+
+    ball = copy.deepcopy(tmp)
     # pb() 
     # print("------")
     ball = eliminate(ball)
