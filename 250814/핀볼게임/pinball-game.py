@@ -10,6 +10,11 @@ dx, dy = [1,0,-1,0], [0,1,0,-1]
 
 def simul(x, y, d):
     t = 1
+    if board[y][x] != 0:
+        x = x - dx[d]
+        y = y - dy[d]
+        t = 0
+
     while True: 
         nx, ny = x + dx[d], y + dy[d] 
         t += 1 
@@ -43,33 +48,23 @@ def simul(x, y, d):
                 # nx, ny = x, y 
                 x, y = nx, ny
                 
-print("start")
 max_t = 0
 for i in range(N):
-    print(i)
-    break
     t = simul(i, 0, 1)
-    break
     if t > max_t:
         max_t = t 
-print("1", max_t)
 
 for i in range(N):
-    break
     t = simul(N - 1, i, 2)
     if t > max_t:
         max_t = t 
-print("2", max_t)
 
 for i in range(N):
-    break
     t = simul(i, N - 1, 3)
     if t > max_t:
         max_t = t 
-print("3", max_t)
 
 for i in range(N):
-    break
     t = simul(0, i, 0)
     if t > max_t:
         max_t = t 
