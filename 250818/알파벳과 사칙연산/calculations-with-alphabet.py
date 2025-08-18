@@ -190,12 +190,13 @@ elif 'b' in s:
                 max_v = re 
 
 elif 'a' in s:
-    mapper = {
-        "a":a
-    }
+    
     re = 0 
     if len(s) != 1:
         for a in range(1,5):
+            mapper = {
+                "a":a
+            }
             for i in range(len(s)):
                 if s[i] == '-':
                     if i == 1:
