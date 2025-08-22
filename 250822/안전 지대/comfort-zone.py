@@ -22,7 +22,7 @@ def dfs(x, y, v):
 
 
 max_v = 0
-max_k = 0 
+max_k = 1 
 def eliminate(k):
     for h in range(N):
         for w in range(M):
