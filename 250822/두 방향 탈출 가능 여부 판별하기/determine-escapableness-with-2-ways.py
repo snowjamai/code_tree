@@ -13,7 +13,7 @@ def dfs(x, y):
     global is_goal
     if x == e_x and y == e_y:
         is_goal = True 
-
+        return
     for i in range(2):
         nx, ny = x + dx[i], y + dy[i]
 
