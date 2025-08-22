@@ -14,8 +14,7 @@ def dfs(x, y):
     if x == e_x and y == e_y:
         is_goal = True 
         return
-    if is_goal == True:
-        return
+
     for i in range(2):
         nx, ny = x + dx[i], y + dy[i]
 
@@ -25,7 +24,7 @@ def dfs(x, y):
             if visited[ny][nx] == 0 and board[ny][nx] == 1:
                 visited[ny][nx] = 1
                 dfs(nx, ny)
-                visited[ny][nx] = 0 
+                # visited[ny][nx] = 0 
     
 dfs(0, 0)
 if is_goal == True:
