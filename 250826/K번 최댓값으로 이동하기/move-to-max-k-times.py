@@ -34,7 +34,7 @@ def bfs(q, base_x, base_y):
     dx, dy = [1,-1,0,0], [0,0,1,-1]
     visited = [[0] * N for _ in range(N)]
     visited[base_y][base_x] = 1
-    max_x, max_y = N - 1, N - 1
+    max_x, max_y = base_x, base_y
     max_v = 0
     while q.empty() == False:
         x, y = q.pop()
