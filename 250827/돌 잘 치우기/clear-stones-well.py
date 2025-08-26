@@ -36,7 +36,7 @@ max_cnt = 0
 
 def dfs(l, idx, cnt):
     global max_cnt
-    if cnt > M:
+    if cnt ==(M + 1):
         a = bfs(l, q)
         if (a - 1) > max_cnt:
             max_cnt = (a - 1)
@@ -76,6 +76,7 @@ def bfs(l, q):
 
 
 dfs([],0,1)
+
 
 print(max_cnt)
 
