@@ -29,33 +29,39 @@ for h in range(N):
             rock.append((w, h))
 
 
+base = []
 for i in range(K):
     r,c = map(int, input().split())
     q.push((c - 1, r - 1))
+    base.append((c-1, r-1))
 max_cnt = 0
 
 def dfs(l, idx, cnt):
     global max_cnt
     if cnt ==(M + 1):
+
         a = bfs(l, q)
-        if (a - 1) > max_cnt:
-            max_cnt = (a - 1)
+        if (a ) > max_cnt:
+            max_cnt = (a )
         return 
     for i in range(idx, len(rock)):
         l.append(i)
         dfs(l,i + 1,cnt + 1)
         l.pop() 
 
-    
+
 
 def bfs(l, q):
     tmp = copy.deepcopy(q)
     tmp_board = copy.deepcopy(board)
     visited = [[0]* N for _ in range(N)]
+
     dx, dy = [1,-1,0,0], [0,0,1,-1]
     fx, fy = tmp.front() 
+
     visited[fy][fx] = 1
     cnt = 0
+
     for i in l:
         tmp_board[rock[i][1]][rock[i][0]] = 0 
 
@@ -66,7 +72,7 @@ def bfs(l, q):
             nx, ny = x + dx[i], y + dy[i] 
             if nx < 0 or nx >= N or ny < 0 or ny >= N:
                 continue 
-            if tmp_board[ny][nx] == 0 and visited[ny][nx] == 0:
+            if tmp_board[ny][nx] == 0 and visited[ny][nx] == 0 and (nx, ny) not in base:
                 visited[ny][nx] = 1 
                 tmp.push((nx, ny)) 
             
