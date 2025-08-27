@@ -46,6 +46,20 @@ make_eli_water()
 t = 0
 import copy 
 
+def spread(x, y , arr):
+    q = deque()
+    q.append((x, y))
+    
+    while len(q) != 0:
+        x, y = q.popleft() 
+        for i in range(4):
+            nx ,ny = x + dx[i], y + dy[i] 
+            if nx < 0 or nx >= M or ny < 0 or ny >= N:
+                continue 
+            if arr[ny][nx] == 0:
+                arr[ny][nx] = -1
+    return arr 
+            
 
 while len(ice) != 0:
     t += 1
@@ -60,6 +74,7 @@ while len(ice) != 0:
         else:
             ice_melt += 1
             tmp_board[iy][ix] = -1 
+            tmp_board = spread(ix, iy, tmp_board)
 
     board = tmp_board
     ice = tmp 
