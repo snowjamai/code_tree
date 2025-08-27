@@ -58,6 +58,7 @@ def spread(x, y , arr):
                 continue 
             if arr[ny][nx] == 0:
                 arr[ny][nx] = -1
+                q.append((nx, ny))
     return arr 
             
 
