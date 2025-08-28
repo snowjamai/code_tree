@@ -29,6 +29,6 @@ q.append((0, 0))
 
 
 bfs(q)
-print(visited[M - 1][N - 1] - 1)
+print(visited[N - 1][M - 1] - 1)
 
 
