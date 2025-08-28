@@ -38,8 +38,8 @@ def bfs(arr):
                 continue 
             if visited[ny][nx] == -1 and arr[ny][nx] == 0:
                 visited[ny][nx] = visited[y][x] + 1 
-    
-    # print(arr)
+                q.append((nx, ny))
+
     return visited[ey][ex]
 
 
