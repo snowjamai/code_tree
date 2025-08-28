@@ -4,27 +4,35 @@ dp = [0] * 1000002
 dp[1] = 0
 dp[2] = 1
 dp[3] = 1
-dp [4] = 2
+dp[4] = 2
 
+target = int(input())
 
-def dfs(i):
-    if i > target + 2 or i < 1:
-        return 
-    
-    if i == 1:
-        return 0
-    elif i == 2:
-        return 1
-    elif i == 3:
-        return 1 
-    else:
-        if i % 2 == 0:
-            return min(min(dfs(i - 1) + 1, dfs(i + 1) + 1),dfs(i //2) + 1) 
-        elif i % 3 == 0:
-            return min(min(dfs(i - 1) + 1, dfs(i + 1) + 1),dfs(i //3) + 1) 
+for i in range(5, target + 2):
+    if i % 2 == 0 and i % 3 == 0:
+        if dp[i // 2] <= dp[i // 3]:
+            dp[i] = dp[i // 2] + 1
         else:
-            return min(dfs(i - 1) + 1, dfs(i + 1) + 1)
+            dp[i] = d[i // 3] + 1
+    elif i % 2 == 0:
+       
+        dp[i] = dp[i // 2] + 1
+    elif i % 3 == 0:
+        dp[i] = dp[i // 3] + 1
+    else:
+            
+        even_min = min(dp[(i -1)// 2] + 2, dp[(i + 1)// 2] + 2)
+        if i == 5:
+            print(even_min)
+        if (i + 1) % 3 == 0:
+            dp[i] = min(even_min, dp[(i + 1) // 3] + 1)
 
-target = 6 
+        elif (i - 1) % 3 == 0:
+            dp[i] = min(even_min, dp[(i - 1) // 3] + 1)
+        
 
-print(dfs(target))
+            
+
+print(dp[:16])
+print(dp[target])
+        
