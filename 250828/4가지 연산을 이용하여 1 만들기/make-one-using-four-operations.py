@@ -22,17 +22,14 @@ for i in range(5, target + 2):
     else:
             
         even_min = min(dp[(i -1)// 2] + 2, dp[(i + 1)// 2] + 2)
-        if i == 5:
-            print(even_min)
         if (i + 1) % 3 == 0:
-            dp[i] = min(even_min, dp[(i + 1) // 3] + 1)
+            dp[i] = min(even_min, dp[(i + 1) // 3] + 2)
 
         elif (i - 1) % 3 == 0:
-            dp[i] = min(even_min, dp[(i - 1) // 3] + 1)
+            dp[i] = min(even_min, dp[(i - 1) // 3] + 2)
         
 
             
 
-print(dp[:16])
 print(dp[target])
         
