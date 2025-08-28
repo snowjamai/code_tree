@@ -28,7 +28,7 @@ def bfs(q):
 
 
 bfs(q)
-if visited[ey][ex] != 0
+if visited[ey][ex] != 0:
     print(visited[ey][ex])
 else:
     print(-1)
