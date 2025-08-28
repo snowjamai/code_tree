@@ -9,7 +9,7 @@ dx, dy = [2, 2, 1, 1, -1,-1, -2, -2], [1, -1, 2, -2, 2,-2,1,-1]
 from collections import deque 
 
 q = deque()
-visited = [[0] * N for _ in range(N)]
+visited = [[-1] * N for _ in range(N)]
 q.append((sx, sy))
 visited[sy][sx] = 0 
 
@@ -22,13 +22,11 @@ def bfs(q):
             if nx < 0 or nx >= N or ny < 0 or ny >= N:
                 continue 
             else:
-                if visited[ny][nx] == 0 or visited[ny][nx] > (visited[y][x] + 1):
+                if visited[ny][nx] == -1 or visited[ny][nx] > (visited[y][x] + 1):
                     visited[ny][nx] = visited[y][x] + 1
                     q.append((nx, ny))
 
 
 bfs(q)
-if visited[ey][ex] != 0:
-    print(visited[ey][ex])
-else:
-    print(-1)
+
+print(visited[ey][ex])
