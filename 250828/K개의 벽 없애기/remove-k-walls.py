@@ -47,16 +47,17 @@ def bfs(arr):
 min_t = N * N
 do = False
 def wall_select(l, idx):
-    global min_t
+    global min_t, do
     if len(l) == K:
         tmp_board = del_wall(l)
         t = bfs(tmp_board)
-        print(t, min_t)
         if t == -1:
             return
         else:
             if min_t > t:
+     
                 do = True 
+         
                 min_t = t
             return
     for i in range(idx, W):
@@ -65,6 +66,7 @@ def wall_select(l, idx):
         l.pop()
 
 wall_select([], 0)
+
 if do == True:
     print(min_t)
 else:
