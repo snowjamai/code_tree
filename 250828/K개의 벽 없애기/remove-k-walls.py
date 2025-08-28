@@ -51,7 +51,7 @@ def wall_select(l, idx):
     if len(l) == K:
         tmp_board = del_wall(l)
         t = bfs(tmp_board)
-        print(t)
+        print(t, min_t)
         if t == -1:
             return
         else:
