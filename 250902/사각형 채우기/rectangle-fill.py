@@ -11,5 +11,5 @@ for i in range(N + 1):
         continue 
     dp[i] = dp[i - 2]+ dp[i - 1] 
 
-print(dp[N])
+print(dp[N] % 10007)
 
