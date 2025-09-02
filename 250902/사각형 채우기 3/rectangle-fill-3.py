@@ -4,7 +4,7 @@ dp = [0] * 1001
 
 dp[1] = 2
 dp[2] = 7
-dp[3] = 16
+dp[3] = 22
 
 for i in range(N + 1):
     if i <= 3: 
